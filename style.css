@@ -1,0 +1,149 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #F5F5F5;
+}
+.container {
+    width: 95%;
+    margin: auto;
+}
+
+.slider {
+    width: 80%;
+    margin: 40px auto;
+}
+
+.images {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.image-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 400%; /* Four slides, so 4x100% */
+}
+
+.images img {
+    max-width: 100%;      /* منع الصورة من التمدد أكثر من عرض الحاوية */
+    max-height: 400px; 
+   
+    
+   
+}
+
+.images input {
+    display: none;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.dots label {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: solid #000 3px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Slide Positions */
+#img1:checked ~ .image-container {
+    transform: translateX(0);
+}
+#img2:checked ~ .image-container {
+    transform: translateX(-25%);
+}
+#img3:checked ~ .image-container {
+    transform: translateX(-50%);
+}
+#img4:checked ~ .image-container {
+    transform: translateX(-75%);
+}
+
+.col-3{
+    width: calc(100% - (3/12)*100);
+    margin: 30px 10px;
+    position: relative;
+}
+.row{
+    width: 100%;
+    display: flex;
+}
+img{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    margin: 0 px;
+    transition: filter 1s ease;
+    
+    
+}
+p{
+    opacity: 0;;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     color: #000;
+     font-weight: bolder;
+     font-size: 24px;
+    
+     transition: opacity 2s ease;
+ }
+.col-3:hover p{
+    cursor: pointer;
+    opacity: 1;
+}
+.col-3:hover img{
+    cursor: pointer;
+filter: blur(8px);
+}
+@media  (max-width: 766px) {
+    .images img {
+        max-width: 100%;      /* منع الصورة من التمدد أكثر من عرض الحاوية */
+        max-height: 400px; 
+        flex-shrink: 0;
+       
+        
+       
+    }
+    #img1:checked ~ .image-container {
+        transform: translateX(0);
+    }
+    #img2:checked ~ .image-container {
+        transform: translateX(-100%);
+    }
+    #img3:checked ~ .image-container {
+        transform: translateX(-200%);
+    }
+    #img4:checked ~ .image-container {
+        transform: translateX(-250%);
+    }
+    .slider{
+        width: 100%;
+    }
+   
+    
+    .row{
+        display: block;
+        width: 100%;
+    }
+    .col-3{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    img{
+        width: 75%;
+        text-align: center;
+    }
+}
